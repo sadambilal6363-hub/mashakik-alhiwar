@@ -1,0 +1,16 @@
+[
+{"id":"lamb","name":"مشاكيك لحم","en":"Lamb mishkak","category":"grill","price":null},
+{"id":"chicken","name":"مشاكيك دجاج","en":"Chicken mishkak","category":"grill","price":null},
+{"id":"shrimp","name":"مشاكيك روبيان","en":"Shrimp mishkak","category":"grill","price":null},
+{"id":"halloumi","name":"مشاكيك جبن","en":"Cheese mishkak","category":"grill","price":null},
+{"id":"kofta","name":"كفتة","en":"Kofta","category":"grill","price":null},
+{"id":"ribs","name":"ريش لحم","en":"Lamb chops","category":"grill","price":null},
+{"id":"sausages","name":"مشاكيك نقانق","en":"Sausage skewers","category":"grill","price":null},
+{"id":"burger","name":"برجر","en":"Burger","category":"sandwiches","price":null},
+{"id":"sandwich","name":"سندويشات","en":"Sandwiches","category":"sandwiches","price":null},
+{"id":"fries","name":"بطاطس مقلية","en":"French fries","category":"sides","price":null},
+{"id":"spiral","name":"بطاطس حلزونية","en":"Spiral potatoes","category":"sides","price":null},
+{"id":"popcorn","name":"فشار","en":"Popcorn","category":"sides","price":null},
+{"id":"corn","name":"ذرة حلوة","en":"Sweet corn","category":"sides","price":null},
+{"id":"hibiscus","name":"عصير الكركديه","en":"Hibiscus drink","category":"drinks","price":null}
+]

@@ -1,0 +1,7 @@
+import type { Metadata, Viewport } from 'next';
+import { Header,Footer } from '../components/ui';
+import { origin,launched,restaurant } from '../lib/site';
+import './globals.css';
+export const metadata:Metadata={metadataBase:new URL(origin),title:{default:'مشاكيك الحوار | على الجمر تبدأ الحكاية',template:'%s | مشاكيك الحوار'},description:'مشاكيك الحوار في الشارقة. اكتشف قائمة المشاكيك والمشاوي والسندويشات، واتصل للطلب أو اعرف طريقك إلى المطعم.',alternates:{canonical:'/'},openGraph:{type:'website',locale:'ar_AE',siteName:restaurant.name,title:'مشاكيك الحوار',description:'على الجمر… تبدأ الحكاية',url:origin},robots:{index:launched,follow:launched},icons:{icon:'/favicon.svg'}};
+export const viewport:Viewport={width:'device-width',initialScale:1,themeColor:'#20241c'};
+export default function Layout({children}:{children:React.ReactNode}){const schema={'@context':'https://schema.org','@type':'Restaurant',name:restaurant.name,url:origin,telephone:restaurant.phone,address:{'@type':'PostalAddress',streetAddress:restaurant.address,addressLocality:'الشارقة',addressCountry:'AE'},hasMenu:origin+'/menu/',servesCuisine:['مشاوي','خليجي'],hasMap:restaurant.mapsUrl};return <html lang="ar" dir="rtl"><body><a className="skip-link" href="#main">انتقل إلى المحتوى</a><Header/>{children}<Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/></body></html>}

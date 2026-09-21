@@ -1,0 +1,1 @@
+export default function NotFound(){return <main id="main" className="wrap section page-heading"><span className="eyebrow">404</span><h1>خلّنا نرجع للمنيو.</h1><p>الصفحة اللي تبحث عنها غير موجودة.</p><a className="button" href="/menu/">عرض القائمة ←</a></main>}

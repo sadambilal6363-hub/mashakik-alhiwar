@@ -1,0 +1,3 @@
+import type { Metadata } from 'next';
+export const metadata:Metadata={title:'حكايتنا',alternates:{canonical:'/about/'}};
+export default function About(){return <main id="main"><section className="about wrap section"><div><span className="eyebrow">مشاكيك الحوار · الشارقة</span><h1>للجمر حكاية.<br/>ولنكهتنا عنوان.</h1><p>في مشاكيك الحوار، تجتمع المشاكيك والمشاوي مع السندويشات والأصناف الجانبية، في قائمة فيها لكل ذوق اختيار.</p><p>من أول سيخ لآخر لقمة، اللمّة تحلى حول نكهة الشواء. حيّاكم عندنا في مليحة، الشارقة.</p><a href="/menu/" className="button">اكتشف القائمة ←</a></div><img src="/images/embers.webp" width="960" height="1100" alt="وهج الجمر في مشهد الشواء"/></section></main>}

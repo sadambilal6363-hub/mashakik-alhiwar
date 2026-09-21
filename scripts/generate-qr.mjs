@@ -1,0 +1,14 @@
+import QRCode from 'qrcode';
+import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';
+const raw=process.env.NEXT_PUBLIC_SITE_URL;
+if(!raw)throw new Error('حدّد الدومين النهائي NEXT_PUBLIC_SITE_URL قبل إنشاء الرمز الدائم.');
+const url=new URL(raw);
+if(url.protocol!=='https:'||url.hostname.endsWith('chatgpt.site')||url.pathname!=='/'||url.search||url.hash)throw new Error('استخدم أصل دومين المطعم النهائي العام، دون مسار.');
+const target=new URL('/menu/',url).href;
+const svg=await QRCode.toString(target,{type:'svg',errorCorrectionLevel:'H',margin:4,width:800,color:{dark:'#22271e',light:'#ffffff'}});
+mkdirSync('public/qr',{recursive:true});
+writeFileSync('public/qr/menu.svg',svg);
+await QRCode.toFile('public/qr/menu.png',target,{width:1600,margin:4,errorCorrectionLevel:'H',color:{dark:'#22271e',light:'#ffffff'}});
+const font=readFileSync('public/fonts/tajawal-bold.ttf').toString('base64');
+writeFileSync('public/qr/print.html',`<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><title>مشاكيك الحوار — رمز القائمة</title><style>@font-face{font-family:t;src:url(data:font/ttf;base64,${font})}*{box-sizing:border-box}body{margin:0;display:grid;place-items:center;background:#f4f0e6;font-family:t,Arial}.card{margin:20px;width:105mm;min-height:148mm;padding:13mm 8mm;text-align:center;border:1mm solid #6c7350;color:#22271e}h1{font-size:27px;margin:0}p{font-size:25px;margin:22px 0}svg{width:76mm;height:76mm;background:white}small{display:block;font:11px Arial;margin-top:12px}button{margin:20px;padding:12px 24px}@page{size:A6;margin:0}@media print{button{display:none}.card{margin:0;width:105mm;height:148mm;border:0}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style><div class="card"><h1>مشاكيك الحوار</h1><p>امسح وشوف المنيو</p>${svg}<small>${target}</small></div><button onclick="window.print()">طباعة</button></html>`);
+console.log('تم إنشاء رمز دائم للقائمة: '+target);
